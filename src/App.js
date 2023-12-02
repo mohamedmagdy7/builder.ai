@@ -26,6 +26,19 @@ function App() {
     setOpacity(1);
   };
 
+  const handleSubmitAnswers = async () => {
+    const question = `My business idea category is ${values.category}. My primary focus of my idea is ${values.focus}. Its ${values.isLive}. MY intended audience are ${values.audience}. Features I consider essential for the initial release of my product (MVP) are ${values.features}. My expected duration is ${values.duration}.  Do Trianglz Company have any similar product with the same business concept?
+    `;
+    const response = await fetch(
+      `http://localhost:3000/api/question?question=${question}`,
+      {
+        method: "POST",
+      }
+    );
+    const aiResponse = await response.json();
+    console.log(aiResponse);
+  };
+
   return (
     <div className="App">
       <div className="builder-container">
@@ -95,6 +108,7 @@ function App() {
               setValues={setValues}
               onStepChange={() => {
                 console.log(values);
+                handleSubmitAnswers();
                 handleStepChange(7);
               }}
             />

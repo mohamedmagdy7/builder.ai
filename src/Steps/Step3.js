@@ -18,7 +18,7 @@ const Step3 = ({ onStepChange, setValues, values }) => {
               onClick={() => {
                 setValues({
                   ...values,
-                  "Is it in existence or is it a new product?": option,
+                  isLive: option,
                 });
                 onStepChange();
               }}

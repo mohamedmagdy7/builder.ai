@@ -21,8 +21,7 @@ const Step5 = ({ onStepChange, setValues, values }) => {
             onChange={(e) => {
               setValues({
                 ...values,
-                "What features do you consider essential for the initial release of your product (MVP)?":
-                  e.target.value,
+                features: e.target.value,
               });
             }}
           />

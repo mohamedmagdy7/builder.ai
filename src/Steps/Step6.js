@@ -19,11 +19,14 @@ const Step6 = ({ onStepChange, setValues, values }) => {
           <div
             className="option"
             key={option}
-            onClick={() => {
+            onClick={async () => {
+              const delay = (ms) =>
+                new Promise((resolve) => setTimeout(resolve, ms));
               setValues({
                 ...values,
-                "What’s your expected duration of work?": option,
+                duration: option,
               });
+              await delay(500);
               onStepChange();
             }}
           >
@@ -46,7 +49,7 @@ const Step6 = ({ onStepChange, setValues, values }) => {
               onChange={(e) => {
                 setValues({
                   ...values,
-                  "What’s your expected duration of work?": e.target.value,
+                  duration: e.target.value,
                 });
               }}
             />

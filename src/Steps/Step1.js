@@ -30,7 +30,7 @@ const Step1 = ({ onStepChange, setValues, values }) => {
             onClick={() => {
               setValues({
                 ...values,
-                "What is your category of business idea?": option,
+                category: option,
               });
               onStepChange();
             }}
@@ -55,7 +55,7 @@ const Step1 = ({ onStepChange, setValues, values }) => {
               onChange={(e) => {
                 setValues({
                   ...values,
-                  "What is your category of business idea?": e.target.value,
+                  category: e.target.value,
                 });
               }}
             />

@@ -26,7 +26,7 @@ const Step2 = ({ onStepChange, setValues, values }) => {
             onClick={() => {
               setValues({
                 ...values,
-                "What is the primary focus or theme of your idea?": option,
+                focus: option,
               });
               onStepChange();
             }}
@@ -51,8 +51,7 @@ const Step2 = ({ onStepChange, setValues, values }) => {
               onChange={(e) => {
                 setValues({
                   ...values,
-                  "What is the primary focus or theme of your idea?":
-                    e.target.value,
+                  focus: e.target.value,
                 });
               }}
             />

@@ -18,7 +18,7 @@ const Step4 = ({ onStepChange, setValues, values }) => {
             onChange={(e) => {
               setValues({
                 ...values,
-                "Who is your intended audience?": e.target.value,
+                audience: e.target.value,
               });
             }}
           />
