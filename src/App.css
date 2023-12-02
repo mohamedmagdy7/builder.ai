@@ -1,0 +1,124 @@
+.App {
+  height: 100vh;
+  /* background-color: #224d77; */
+  padding: 5rem;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+    url("./Background-Image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 90%;
+}
+
+.builder-container {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 3rem;
+  padding-bottom: 10rem;
+  transition: all ease-in-out 0.5s;
+  height: 50vh;
+}
+.steps-container {
+  transition: all ease-in-out 0.5s;
+  margin-top: 2rem;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 7rem;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  animation: fade 2s;
+}
+
+.option {
+  color: #2576b3;
+  border: 1px solid #2576b3;
+  padding: 2rem;
+  width: 15rem;
+  font-size: 20px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.option:hover {
+  background-color: #2576b3;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.option-selected {
+  background-color: #2576b3;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.bigger-option {
+  padding: 4rem;
+}
+
+/* Basic styling for the text input */
+.input-container {
+  position: relative;
+  width: 60%; /* Adjust the width as needed */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-bottom: 2px solid lightgrey;
+  outline: none;
+  font-size: 16px;
+  transition: border-bottom-color 0.3s;
+}
+
+/* Add a subtle underline animation on focus */
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  border-bottom-color: #2576b3;
+}
+
+/* Add some extra styling for placeholder text */
+input[type="text"]::placeholder {
+  color: #2576b3;
+}
+
+/* Add a transition effect for placeholder text */
+input[type="text"]:focus::placeholder {
+  color: #bdc3c7;
+  transition: color 0.3s;
+}
+
+.input-container span {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #2576b3;
+}
+
+/* Add a hover effect for the "Next" adornment */
+.input-container span:hover {
+  text-decoration: underline;
+}
