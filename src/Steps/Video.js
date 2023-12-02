@@ -1,4 +1,4 @@
-const Video = ({ onStepChange, setValues, values }) => {
+const Video = ({ aiResponse }) => {
   return (
     <div>
       <div
@@ -9,9 +9,9 @@ const Video = ({ onStepChange, setValues, values }) => {
           flexDirection: "column",
         }}
       >
-        <h2>We found this video</h2>
+        <h2>{aiResponse?.response}</h2>
         <video width="640" height="360" controls>
-          <source src="" type="video/mp4" />
+          <source src={aiResponse?.video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

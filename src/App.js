@@ -15,6 +15,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const [values, setValues] = useState({});
+  const [aiResponse, setAiResponse] = useState({});
 
   const steps = [0, 1, 2, 3, 4, 5, 6, 7];
 
@@ -35,7 +36,8 @@ function App() {
         method: "POST",
       }
     );
-    const aiResponse = await response.json();
+    const json = await response.json();
+    setAiResponse(json);
     console.log(aiResponse);
   };
 
