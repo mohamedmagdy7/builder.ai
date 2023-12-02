@@ -3,14 +3,14 @@ import "./Step0.css";
 const Step0 = ({ onStepChange }) => {
   const [user, setUser] = useState({});
   const handleSubmit = async () => {
-    // const response = await fetch(
-    //   `http://localhost:3000/api/user?name=${user.name}&email=${user.email}&phone=${user.phone}&country=${user.country}&title=${user.job_title}`,
-    //   {
-    //     method: "POST",
-    //   }
-    // );
-    // const customer = await response.json();
-    // console.log(customer);
+    const response = await fetch(
+      `http://localhost:3000/api/user?name=${user.name}&email=${user.email}&phone=${user.phone}&country=${user.country}&title=${user.job_title}`,
+      {
+        method: "POST",
+      }
+    );
+    const customer = await response.json();
+    console.log(customer);
     onStepChange(1);
   };
   return (
