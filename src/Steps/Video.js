@@ -1,3 +1,4 @@
+import "./Spinner.css";
 const Video = ({ aiResponse }) => {
   return (
     <div>
@@ -34,6 +35,14 @@ const Video = ({ aiResponse }) => {
           <p style={{ color: "#828282", fontSize: "20px" }}>
             Product summary: {aiResponse?.product?.summary}
           </p>
+        )}
+        {!aiResponse?.response && (
+          <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         )}
         <a
           href={aiResponse?.video}
