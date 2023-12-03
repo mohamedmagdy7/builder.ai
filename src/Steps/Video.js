@@ -25,7 +25,16 @@ const Video = ({ aiResponse }) => {
         <p style={{ color: "#828282", fontSize: "24px", marginTop: "3rem" }}>
           {aiResponse?.response}
         </p>
-        <p style={{ color: "#828282", fontSize: "24px" }}></p>
+        {aiResponse?.product?.name && (
+          <p style={{ color: "#828282", fontSize: "20px" }}>
+            Product name: {aiResponse?.product?.name}
+          </p>
+        )}
+        {aiResponse?.product?.summary && (
+          <p style={{ color: "#828282", fontSize: "20px" }}>
+            Product summary: {aiResponse?.product?.summary}
+          </p>
+        )}
         <a
           href={aiResponse?.video}
           target="_blank"
