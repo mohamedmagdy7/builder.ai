@@ -15,8 +15,7 @@ const Step5 = ({ onStepChange, setValues, values }) => {
       </div>
       <div className="options-container">
         <div className="input-container">
-          <input
-            type="text"
+          <textarea
             placeholder="Please list the essential features"
             onChange={(e) => {
               setValues({

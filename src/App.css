@@ -81,7 +81,8 @@
 
 input[type="text"],
 input[type="tel"],
-input[type="email"] {
+input[type="email"],
+textarea {
   width: 100%;
   padding: 16px;
   border: none;
@@ -94,19 +95,26 @@ input[type="email"] {
 /* Add a subtle underline animation on focus */
 input[type="text"]:focus,
 input[type="tel"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+textarea:focus {
   border-bottom-color: #2576b3;
 }
 
 /* Add some extra styling for placeholder text */
-input[type="text"]::placeholder {
+input[type="text"]::placeholder,
+textarea::placeholder {
   color: #2576b3;
 }
 
 /* Add a transition effect for placeholder text */
-input[type="text"]:focus::placeholder {
+input[type="text"]:focus::placeholder,
+textarea:focus::placeholder {
   color: #bdc3c7;
   transition: color 0.3s;
+}
+
+textarea {
+  overflow: hidden;
 }
 
 .input-container span {
