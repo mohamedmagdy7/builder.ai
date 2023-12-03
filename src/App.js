@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="builder-container success">
+      <div className={`builder-container ${currentStep === 7 && "success"}`}>
         {currentStep !== 7 && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ width: "50%" }}>
