@@ -12,7 +12,7 @@ import "./App.css";
 import Video from "./Steps/Video";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(7);
+  const [currentStep, setCurrentStep] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const [values, setValues] = useState({});
   const [aiResponse, setAiResponse] = useState({});
