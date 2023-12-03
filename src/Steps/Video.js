@@ -12,7 +12,7 @@ const Video = ({ aiResponse }) => {
         }}
       >
         <h1 style={{ color: "#003366" }}>
-          Thank you for sharing your business idea
+          Thank you for sharing your business idea &#127881;
         </h1>
         <p
           style={{
@@ -33,7 +33,7 @@ const Video = ({ aiResponse }) => {
         )}
         {aiResponse?.product?.summary && (
           <p style={{ color: "#828282", fontSize: "20px" }}>
-            Product summary: {aiResponse?.product?.summary}
+            {aiResponse?.product?.summary}
           </p>
         )}
         {!aiResponse?.response && (
