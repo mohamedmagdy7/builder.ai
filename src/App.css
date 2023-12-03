@@ -122,3 +122,24 @@ input[type="text"]:focus::placeholder {
 .input-container span:hover {
   text-decoration: underline;
 }
+
+.button-link {
+  border: 2px solid #2576b3;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: #2576b3;
+  color: white;
+  padding-left: 4.5rem;
+  padding-right: 4.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 5rem;
+  font-size: 22px;
+}
+
+.success {
+  background-image: url("./Steps/image3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

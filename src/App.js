@@ -12,12 +12,12 @@ import "./App.css";
 import Video from "./Steps/Video";
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(7);
   const [opacity, setOpacity] = useState(1);
   const [values, setValues] = useState({});
   const [aiResponse, setAiResponse] = useState({});
 
-  const steps = [0, 1, 2, 3, 4, 5, 6, 7];
+  const steps = [0, 1, 2, 3, 4, 5, 6];
 
   const handleStepChange = async (step) => {
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -43,12 +43,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className="builder-container">
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ width: "50%" }}>
-            <Stepper steps={steps} currentStep={currentStep} />
+      <div className="builder-container success">
+        {currentStep !== 7 && (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ width: "50%" }}>
+              <Stepper steps={steps} currentStep={currentStep} />
+            </div>
           </div>
-        </div>
+        )}
         <div style={{ opacity: opacity }} className="steps-container">
           {currentStep === 0 && (
             <Step0
@@ -115,7 +117,7 @@ function App() {
               }}
             />
           )}
-          {currentStep === 7 && <Video />}
+          {currentStep === 7 && <Video aiResponse={aiResponse} />}
         </div>
       </div>
     </div>
