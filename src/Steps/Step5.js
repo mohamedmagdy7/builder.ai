@@ -1,4 +1,4 @@
-const Step5 = ({ onStepChange, setValues, values }) => {
+const Step5 = ({ onStepChange, setValues, values, userId }) => {
   return (
     <div>
       <div
@@ -24,7 +24,15 @@ const Step5 = ({ onStepChange, setValues, values }) => {
               });
             }}
           />
-          <span onClick={onStepChange}>Next</span>
+          <span onClick={async()=>{
+              await fetch(
+                `http://localhost:3000/api/answer?user_id=${userId}&question_id=5&answer=${values?.features}`,
+                {
+                  method: "POST",
+                }
+              );
+              onStepChange()
+            }}>Next</span>
         </div>
       </div>
     </div>

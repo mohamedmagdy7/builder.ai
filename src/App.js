@@ -16,6 +16,7 @@ function App() {
   const [opacity, setOpacity] = useState(1);
   const [values, setValues] = useState({});
   const [aiResponse, setAiResponse] = useState({});
+  const [userId, setUserId] = useState("");
 
   const steps = [0, 1, 2, 3, 4, 5, 6];
 
@@ -28,17 +29,23 @@ function App() {
   };
 
   const handleSubmitAnswers = async () => {
-    const question = `My business idea category is ${values.category}. My primary focus of my idea is ${values.focus}. Its ${values.isLive}. MY intended audience are ${values.audience}. Features I consider essential for the initial release of my product (MVP) are ${values.features}. My expected duration is ${values.duration}.  Do Trianglz Company have any similar product with the same business concept?
-    `;
+    // const question = `My business idea category is ${values.category}. My primary focus of my idea is ${values.focus}. Its ${values.isLive}. MY intended audience are ${values.audience}. Features I consider essential for the initial release of my product (MVP) are ${values.features}. My expected duration is ${values.duration}.  Do Trianglz Company have any similar product with the same business concept?
+    // `;
+    // const response = await fetch(
+    //   `http://localhost:3000/api/question?question=${question}`,
+    //   {
+    //     method: "POST",
+    //   }
+    // );
     const response = await fetch(
-      `http://localhost:3000/api/question?question=${question}`,
+      `http://localhost:3000/api/answer?user_id=${userId}&question_id=6&answer=${values?.duration}`,
       {
         method: "POST",
       }
     );
     const json = await response.json();
     setAiResponse(json);
-    console.log(aiResponse);
+    await fetch(`http://localhost:3000/api/request_meeting?user_id=${userId}`)
   };
 
   return (
@@ -59,6 +66,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(1);
               }}
+              setUserId={setUserId}
             />
           )}
           {currentStep === 1 && (
@@ -68,6 +76,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(2);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 2 && (
@@ -77,6 +86,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(3);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 3 && (
@@ -86,6 +96,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(4);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 4 && (
@@ -95,6 +106,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(5);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 5 && (
@@ -104,6 +116,7 @@ function App() {
               onStepChange={() => {
                 handleStepChange(6);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 6 && (
@@ -111,10 +124,10 @@ function App() {
               values={values}
               setValues={setValues}
               onStepChange={() => {
-                console.log(values);
                 handleSubmitAnswers();
                 handleStepChange(7);
               }}
+              userId={userId}
             />
           )}
           {currentStep === 7 && <Video aiResponse={aiResponse} />}

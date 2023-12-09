@@ -1,4 +1,4 @@
-const Step3 = ({ onStepChange, setValues, values }) => {
+const Step3 = ({ onStepChange, setValues, values, userId }) => {
   return (
     <div>
       <div
@@ -15,11 +15,17 @@ const Step3 = ({ onStepChange, setValues, values }) => {
           {["Existent Live Product", "New Product"].map((option) => (
             <div
               className="option bigger-option"
-              onClick={() => {
+              onClick={async() => {
                 setValues({
                   ...values,
                   isLive: option,
                 });
+                await fetch(
+                  `http://localhost:3000/api/answer?user_id=${userId}&question_id=${3}&answer=${option}`,
+                  {
+                    method: "POST",
+                  }
+                );
                 onStepChange();
               }}
               key={option}

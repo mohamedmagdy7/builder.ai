@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Step0.css";
-const Step0 = ({ onStepChange }) => {
+const Step0 = ({ onStepChange, setUserId }) => {
   const [user, setUser] = useState({});
   const handleSubmit = async () => {
     const response = await fetch(
@@ -9,8 +9,8 @@ const Step0 = ({ onStepChange }) => {
         method: "POST",
       }
     );
-    const customer = await response.json();
-    console.log(customer);
+    const userResponse = await response.json();
+    setUserId(userResponse?.user_id)
     onStepChange(1);
   };
   return (

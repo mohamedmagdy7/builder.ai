@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Step2 = ({ onStepChange, setValues, values }) => {
+const Step2 = ({ onStepChange, setValues, values, userId }) => {
   const [otherOption, setOtherOption] = useState(false);
 
   return (
@@ -23,11 +23,17 @@ const Step2 = ({ onStepChange, setValues, values }) => {
         ].map((option) => (
           <div
             className="option"
-            onClick={() => {
+            onClick={async() => {
               setValues({
                 ...values,
                 focus: option,
               });
+              await fetch(
+                `http://localhost:3000/api/answer?user_id=${userId}&question_id=2&answer=${option}`,
+                {
+                  method: "POST",
+                }
+              );
               onStepChange();
             }}
             key={option}
@@ -55,7 +61,15 @@ const Step2 = ({ onStepChange, setValues, values }) => {
                 });
               }}
             />
-            <span onClick={onStepChange}>Next</span>
+            <span onClick={async()=>{
+              await fetch(
+                `http://localhost:3000/api/answer?user_id=${userId}&question_id=2&answer=${values?.focus}`,
+                {
+                  method: "POST",
+                }
+              );
+              onStepChange()
+            }}>Next</span>
           </div>
         )}
       </div>
